@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Inicio from "./Inicio";
+import Productos from "./Productos";
 import Nosotros from "./Nosotros";
 import Error from "./Error";
 import infoProductos from '../datos/datos';
@@ -21,7 +21,11 @@ class Router extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={Inicio}/>
+                    <Route exact path="/" render={() => (
+                        <Productos
+                            productos = {this.state.productos}
+                        />
+                    )}/>
                     <Route exact path="/nosotros" component={Nosotros}/>
                     <Route component={Error}/>
                 </Switch>
