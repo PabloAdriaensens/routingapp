@@ -4,6 +4,7 @@ import Productos from "./Productos";
 import Nosotros from "./Nosotros";
 import Error from "./Error";
 import infoProductos from '../datos/datos';
+import Header from "./Header";
 
 class Router extends Component {
 
@@ -20,15 +21,18 @@ class Router extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" render={() => (
-                        <Productos
-                            productos = {this.state.productos}
-                        />
-                    )}/>
-                    <Route exact path="/nosotros" component={Nosotros}/>
-                    <Route component={Error}/>
-                </Switch>
+                <div className="contenedor">
+                    <Header/>
+                    <Switch>
+                        <Route exact path="/" render={() => (
+                            <Productos
+                                productos={this.state.productos}
+                            />
+                        )}/>
+                        <Route exact path="/nosotros" component={Nosotros}/>
+                        <Route component={Error}/>
+                    </Switch>
+                </div>
             </BrowserRouter>
         );
     }

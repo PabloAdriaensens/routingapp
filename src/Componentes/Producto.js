@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Producto = () => {
+const Producto = (props) => {
+    const {imagen, nombre, precio, id} = props.informacion;
     return (
         <li>
-            <h1>Desde Producto</h1>
+            <img src={`img/${imagen}.png`} alt={nombre}/>
+            <p>{nombre} <span> ${precio}</span></p>
+            <a href="#">Más Información</a>
         </li>
     )
 };
